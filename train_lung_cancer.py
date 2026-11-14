@@ -41,15 +41,15 @@ RANDOM_STATE = 42
 SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp"}
 
 
-def collect_image_manifest(folder: Path) -> pd.DataFrame:
-    if not folder.is_dir():
-        raise FileNotFoundError(f"Image directory not found: {folder}")
+def collect_image_manifest(Data: Path) -> pd.DataFrame:
+    if not Data.is_dir():
+        raise FileNotFoundError(f"Image directory not found: {Data}")
 
     rows: list[dict[str, str]] = []
-    class_dirs = sorted(path for path in folder.iterdir() if path.is_dir())
+    class_dirs = sorted(path for path in Data.iterdir() if path.is_dir())
     if len(class_dirs) < 2:
         raise ValueError(
-            f"Expected at least two class subfolders inside {folder}. "
+            f"Expected at least two class subfolders inside {Data}. "
             "Each class must have its own directory."
         )
 
@@ -60,7 +60,7 @@ def collect_image_manifest(folder: Path) -> pd.DataFrame:
 
     manifest = pd.DataFrame(rows)
     if manifest.empty:
-        raise ValueError(f"No supported images found inside {folder}.")
+        raise ValueError(f"No supported images found inside {Data}.")
     return manifest
 
 

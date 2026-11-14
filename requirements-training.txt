@@ -1,0 +1,12 @@
+# Recommended in a fresh Python 3.11 environment.
+# NumPy is pinned below 2 because the supplied tf2onnx conversion log
+# shows the removed np.cast API from NumPy 2.x.
+numpy==1.26.4
+tensorflow==2.15.1
+tf2onnx==1.16.1
+onnx==1.16.1
+onnxruntime==1.18.1
+scikit-learn>=1.4,<1.6
+pandas>=2.0,<3.0
+matplotlib>=3.8
+Pillow>=10.0

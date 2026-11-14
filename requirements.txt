@@ -1,0 +1,7 @@
+# Lightweight inference dependencies for Streamlit deployment
+streamlit>=1.39,<2.0
+numpy>=1.24,<2.0
+pandas>=2.0,<3.0
+Pillow>=10.0
+plotly>=5.20
+onnxruntime>=1.18,<2.0
